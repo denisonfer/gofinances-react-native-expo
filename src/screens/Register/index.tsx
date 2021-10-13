@@ -3,6 +3,7 @@ import React, { useState, useCallback } from 'react';
 import Button from '../../components/Button';
 import ButtonTypeTransaction from '../../components/ButtonTypeTransaction';
 import Input from '../../components/Input';
+import SelectorList from '../../components/SelectorList';
 
 import { Container, Fields, Form, Header, Title, TransactionTypes } from './styles';
 
@@ -40,6 +41,8 @@ const Register: React.FC = () => {
               isActive={transactionType === 'down'}
             />
           </TransactionTypes>
+
+          <SelectorList title="Categoria" />
 
         </Fields>
 
