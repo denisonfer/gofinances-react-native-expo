@@ -3,7 +3,7 @@ interface ICategory {
   icon: string;
 }
 
-export default interface ITransactionCardProps {
+export interface ITransactionCardProps {
   type: 'positive' | 'negative';
   title: string;
   amount: string;
@@ -11,6 +11,6 @@ export default interface ITransactionCardProps {
   date: string;
 }
 
-export default interface IProps {
+export interface IProps {
   data: ITransactionCardProps;
 }

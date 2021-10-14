@@ -1,6 +1,6 @@
 import React from 'react';
 
-import IProps from './types';
+import { IProps } from './types';
 
 import {
   Amount,
