@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import Button from '../../components/Button';
+import Button from "../../components/Button";
 
-import { categories } from '../../mock/categories';
+import { categories } from "../../mock/categories";
 
 import {
   Category,
@@ -13,8 +13,8 @@ import {
   ListCategories,
   Name,
   Separator,
-  Title
-} from './styles';
+  Title,
+} from "./styles";
 
 interface ICategoryData {
   key: string;
@@ -22,7 +22,7 @@ interface ICategoryData {
 }
 
 interface ICategory {
-  category: string;
+  category: ICategoryData;
   setCategory: (category: ICategoryData) => void;
   closeSelectCategory: () => void;
 }
@@ -30,7 +30,7 @@ interface ICategory {
 const CategorySelect: React.FC<ICategory> = ({
   category,
   setCategory,
-  closeSelectCategory
+  closeSelectCategory,
 }) => {
   return (
     <Container>
@@ -40,9 +40,12 @@ const CategorySelect: React.FC<ICategory> = ({
 
       <ListCategories
         data={categories}
-        keyExtractor={item => item.key}
+        keyExtractor={(item) => item.key}
         renderItem={({ item }) => (
-          <Category>
+          <Category
+            onPress={() => setCategory(item)}
+            isActive={category.key === item.key}
+          >
             <Icon name={item.icon} />
             <Name>{item.name}</Name>
           </Category>
@@ -51,10 +54,10 @@ const CategorySelect: React.FC<ICategory> = ({
       />
 
       <Footer>
-        <Button title="Selecionar" />
+        <Button onPress={closeSelectCategory} title="Selecionar" />
       </Footer>
     </Container>
   );
-}
+};
 
 export default CategorySelect;
