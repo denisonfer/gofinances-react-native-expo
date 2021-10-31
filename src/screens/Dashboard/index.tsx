@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import HighlightCard from '../../components/HighlightCard';
-import TransactionCard from '../../components/TransactionCard';
-import { ITransactionCardProps } from '../../components/TransactionCard/types';
+import HighlightCard from "../../components/HighlightCard";
+import TransactionCard from "../../components/TransactionCard";
+import { ITransactionCardProps } from "../../components/TransactionCard/types";
 
 import {
   Container,
@@ -18,7 +18,8 @@ import {
   Transactions,
   Title,
   ListTransactions,
-} from './styles';
+  LogoutButton,
+} from "./styles";
 
 export interface DataListProps extends ITransactionCardProps {
   id: string;
@@ -33,9 +34,9 @@ const Dashboard: React.FC = () => {
       amount: "R$ 10.400,00",
       category: {
         name: "Vendas",
-        icon: "dollar-sign"
+        icon: "dollar-sign",
       },
-      date: "01/04/2021"
+      date: "01/04/2021",
     },
     {
       id: "2",
@@ -44,9 +45,9 @@ const Dashboard: React.FC = () => {
       amount: "R$ 10.400,00",
       category: {
         name: "Compras",
-        icon: "shopping-bag"
+        icon: "shopping-bag",
       },
-      date: "05/04/2021"
+      date: "05/04/2021",
     },
     {
       id: "3",
@@ -55,10 +56,10 @@ const Dashboard: React.FC = () => {
       amount: "R$ 7.000,00",
       category: {
         name: "Vendas",
-        icon: "dollar-sign"
+        icon: "dollar-sign",
       },
-      date: "16/04/2021"
-    }
+      date: "16/04/2021",
+    },
   ];
 
   return (
@@ -67,7 +68,9 @@ const Dashboard: React.FC = () => {
         <UserWrapper>
           <UserInfo>
             <Photo
-              source={{ uri: 'https://avatars.githubusercontent.com/u/53531333?v=4' }}
+              source={{
+                uri: "https://avatars.githubusercontent.com/u/53531333?v=4",
+              }}
             />
 
             <User>
@@ -76,10 +79,11 @@ const Dashboard: React.FC = () => {
             </User>
           </UserInfo>
 
-          <Icon name="power" />
+          <LogoutButton onPress={() => {}}>
+            <Icon name="power" />
+          </LogoutButton>
         </UserWrapper>
       </Header>
-
 
       <HighlightCards>
         <HighlightCard
@@ -109,17 +113,12 @@ const Dashboard: React.FC = () => {
 
         <ListTransactions
           data={data}
-          keyExtractor={item => item.id}
-          renderItem={({ item }) =>
-            <TransactionCard data={item} />
-          }
-
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => <TransactionCard data={item} />}
         />
-
       </Transactions>
-
     </Container>
-  )
-}
+  );
+};
 
 export default Dashboard;

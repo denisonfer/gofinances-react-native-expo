@@ -1,18 +1,19 @@
-import styled, { css } from 'styled-components/native';
+import styled, { css } from "styled-components/native";
 import { Feather } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native";
-import { RFValue } from 'react-native-responsive-fontsize';
+import { RFValue } from "react-native-responsive-fontsize";
+import { RectButton } from "react-native-gesture-handler";
 
 interface ITypesIconProps {
-  type: 'up' | 'down';
+  type: "up" | "down";
 }
 
 interface IContainerProps {
   isActive: boolean;
-  type: 'up' | 'down';
+  type: "up" | "down";
 }
 
-export const Container = styled(TouchableOpacity) <IContainerProps>`
+export const Container = styled(RectButton)<IContainerProps>`
   flex-direction: row;
   width: 48%;
   align-items: center;
@@ -21,19 +22,20 @@ export const Container = styled(TouchableOpacity) <IContainerProps>`
   border-radius: 5px;
   padding: 16px 0;
 
-  ${({ theme, isActive, type }) => isActive && type === 'up'
-    && css`
-    background-color: ${theme.colors.SUCCESS_LIGHT};
-    border-width: 0;
-   `
-  };
-  ${({ theme, isActive, type }) => isActive && type === 'down'
-    && css`
-    background-color: ${theme.colors.ATTENTION_LIGHT};
-    border-width: 0;
-
-   `
-  };
+  ${({ theme, isActive, type }) =>
+    isActive &&
+    type === "up" &&
+    css`
+      background-color: ${theme.colors.SUCCESS_LIGHT};
+      border-width: 0;
+    `};
+  ${({ theme, isActive, type }) =>
+    isActive &&
+    type === "down" &&
+    css`
+      background-color: ${theme.colors.ATTENTION_LIGHT};
+      border-width: 0;
+    `};
 `;
 
 export const Title = styled.Text`
@@ -41,12 +43,9 @@ export const Title = styled.Text`
   font-size: ${RFValue(14)}px;
 `;
 
-export const Icon = styled(Feather) <ITypesIconProps>`
+export const Icon = styled(Feather)<ITypesIconProps>`
   font-size: ${RFValue(24)}px;
   margin-right: 12px;
-  color: ${({ theme, type }) => type === 'down'
-    ? theme.colors.ATTENTION
-    : theme.colors.SUCCESS
-  };
-
-`
+  color: ${({ theme, type }) =>
+    type === "down" ? theme.colors.ATTENTION : theme.colors.SUCCESS};
+`;

@@ -2,6 +2,7 @@ import styled from "styled-components/native";
 import { FlatList } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
 import { Feather } from "@expo/vector-icons";
+import { RectButton } from "react-native-gesture-handler";
 
 interface CaterogyButtonProps {
   isActive: boolean;
@@ -31,7 +32,7 @@ export const ListCategories = styled(FlatList)`
   width: 100%;
 `;
 
-export const Category = styled.TouchableOpacity<CaterogyButtonProps>`
+export const Category = styled(RectButton)<CaterogyButtonProps>`
   background-color: ${({ theme, isActive }) =>
     isActive ? theme.colors.SECONDARY_LIGHT : theme.colors.SHAPE};
   padding: ${RFValue(15)}px;
