@@ -1,12 +1,12 @@
-import styled from "styled-components/native";
-import { FlatList } from "react-native";
-import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
-import { Feather } from "@expo/vector-icons";
-import { getStatusBarHeight } from "react-native-iphone-x-helper";
-import { getBottomSpace } from "react-native-iphone-x-helper";
-import { BorderlessButton } from "react-native-gesture-handler";
+import styled from 'styled-components/native';
+import { FlatList } from 'react-native';
+import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
+import { Feather } from '@expo/vector-icons';
+import { getStatusBarHeight } from 'react-native-iphone-x-helper';
+import { getBottomSpace } from 'react-native-iphone-x-helper';
+import { BorderlessButton } from 'react-native-gesture-handler';
 
-import { DataListProps } from "./index";
+import { DataListProps } from './index';
 
 export const Container = styled.View`
   flex: 1;
@@ -96,3 +96,9 @@ export const ListTransactions = styled(
     paddingBottom: getBottomSpace(),
   },
 })``;
+
+export const LoadingContainer = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;

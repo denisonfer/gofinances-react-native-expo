@@ -1,13 +1,8 @@
-interface ICategory {
-  name: string;
-  icon: string;
-}
-
 export interface ITransactionCardProps {
   type: 'positive' | 'negative';
-  title: string;
+  name: string;
   amount: string;
-  category: ICategory;
+  category: string;
   date: string;
 }
 
